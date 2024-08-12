@@ -1,0 +1,47 @@
+<!------------------------------>
+<!-- Template driven form -->
+<div class="container text-center w-50 h-75 border border-2  mt-5">
+    <form #loginForm="ngForm" (ngSubmit)=checkInputs(loginForm)>
+        <div class="form-floating m-4">
+            <!-- [ required - email format ][Using Regex] -->
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                #emailAddress="ngModel" ngModel name="EMAIL" required #EMAIL="ngModel"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            <label for="floatingInput">Email address</label>
+            @if (EMAIL.invalid && EMAIL.touched) {
+            <div class="text-danger text-start m-1">
+                @if (EMAIL.hasError("pattern")) {
+                <p>Email is not valid</p>
+                }
+                @if (EMAIL.hasError("required")) {
+                <p>Required</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-floating m-4">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" ngModel
+                name="PASSWORD" required #PASSWORD="ngModel" minlength="8">
+            <label for="floatingPassword">Password</label>
+            @if (PASSWORD.invalid && PASSWORD.touched) {
+            <div class="text-danger text-start m-1">
+                @if (PASSWORD.hasError("required")) {
+                <p>Required</p>
+                } @if (PASSWORD.hasError("minlength")) {
+                <p>password length not less than 8 characters</p>
+                }
+            </div>
+            }
+        </div>
+        <button class="btn btn-primary w-75 m-4 text-white">Login</button>
+        <!-- <input class="btn btn-primary w-75 m-4 text-white" value="Login"> -->
+
+    </form>
+    <div>
+        <p>Don't have an account?
+            <a href="#" class="text-black fw-bold">Register</a>
+        </p>
+    </div>
+</div>
+<!-- <p> {{hello}}</p>  
+<input type="text" [(ngModel)]="hello"> -->

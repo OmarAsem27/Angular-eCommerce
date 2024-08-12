@@ -1,0 +1,87 @@
+<div class="container text-center w-50 h-100 border border-2  mt-3">
+    <!------------------------ Reactive Form ------------->
+
+    <form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
+        <div class="form-floating m-4">
+            <input type="text" class="form-control" id="floatingName" placeholder="" formControlName="name">
+            <label for="floatingName">Name</label>
+            @if (testName?.invalid && testName?.touched) {
+            <div class="text-danger text-start m-1">
+                @if (testName?.hasError("required")) {
+                <p>name is required</p>
+                }
+                @if (testName?.hasError("minlength")) {
+                <p>username should have more than 8 characters</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-floating m-4">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com"
+                formControlName="emailaddress">
+            <label for="floatingEmail">Email address</label>
+            @if (testEmail?.invalid && testEmail?.touched) {
+            <div class="text-danger text-start m-1">
+                @if (testEmail?.hasError("required")) {
+                <p>email address is required</p>
+                }
+                @if (testEmail?.hasError("email")) {
+                <p>email is not valid</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-floating m-4">
+            <input type="text" class="form-control" id="floatingUsername" placeholder="Username"
+                formControlName="username" />
+            <label for="floatingUsername">Username</label>
+            @if (tesUsername?.invalid && tesUsername?.touched) {
+            <div class="text-danger text-start m-1">
+                @if (tesUsername?.hasError("required")) {
+                <p>username is required</p>
+                }
+                @if (tesUsername?.hasError("minlength")) {
+                <p>username should have more than 6 characters</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-floating m-4">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                formControlName="password">
+            <label for="floatingPassword">Password</label>
+            @if (testPassword?.invalid && testPassword?.touched) {
+            <div class="text-danger text-start m-1">
+                @if (testPassword?.hasError("required")) {
+                <p>password is required</p>
+                }
+                @if (testPassword?.hasError("minlength")) {
+                <p>password should have more than 8 characters</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="form-floating m-4">
+            <input type="password" class="form-control" id="floatingConfirmPassword" placeholder=""
+                formControlName="confpassword">
+            <label for="floatingConfirmPassword">Confirm Password</label>
+            @if (testConfPass?.invalid && testConfPass?.touched) {
+            <div class="text-danger text-start m-1">
+                @if (testConfPass?.hasError("required")) {
+                <p>password is required</p>
+                }
+                @if (testConfPass?.hasError("minlength")) {
+                <p>password should have more than 8 characters</p>
+                }
+            </div>
+            }
+        </div>
+        <div class="text-start m-4">
+            <button class="btn btn-success ">Register</button>
+        </div>
+    </form>
+    <hr class="m-4 mb-5">
+    <div class="fw-bold mt-5">
+        <p> Already have an account! <a href="#" class="text-dark"> login </a></p>
+    </div>
+</div>

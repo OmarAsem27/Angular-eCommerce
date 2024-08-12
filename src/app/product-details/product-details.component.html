@@ -1,0 +1,35 @@
+<div class="card my-5 w-50">
+    <img [src]="productDetails.images" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2 class="card-title">{{productDetails.title}}</h2>
+        <p class="card-text">{{productDetails.description}}</p>
+        <p class="card-text fw-bold">{{productDetails.category}}</p>
+        <p class="card-text fw-bold">{{productDetails.brand}}</p>
+        <p class="card-text fw-bold">Rating: {{productDetails.rating}}</p>
+    </div>
+</div>
+
+
+<!-- <div class="card h-100">
+    @if (productItem.stock == 0) {
+    <span class="badge text-bg-danger w-25 m-3 rounded-5 p-2"> out of stock </span>
+    }
+    @else{
+    <span class="badge text-bg-success w-25 m-3 rounded-5 p-2"> in stock </span>
+    }
+    <div class="card-body">
+        <img [src]="productItem.images[0]" class="card-img-top" alt="...">
+      
+        <a [routerLink]="['/product-details',productItem.id]">
+            <h4 class="card-title">{{productItem.title}}</h4>
+        </a>
+        <p class="card-text">{{productItem.description}}</p>
+        <p class="card-text">${{productItem.price}}</p>
+        <p class="card-text">Rating: {{productItem.rating}}</p>
+        <a>
+            <button class="btn border border-2 border-black rounded-5 fw-bold p-3" id="addBtn">
+                Add to cart
+            </button>
+        </a>
+    </div>
+</div> -->
